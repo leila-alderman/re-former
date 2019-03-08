@@ -11,7 +11,7 @@
   <input type="submit" value="Submit">
 </form>
 
-<h2>Rails form_tag form</h2>
+<h2>Rails form_tag Form</h2>
 <%= form_tag("/users", method: "post") do %>
   <%= label_tag(:username, "Username:") %><br>
   <%= text_field_tag(:username) %><br><br>
@@ -20,4 +20,15 @@
   <%= label_tag(:password, "Password:") %><br>
   <%= password_field_tag(:password) %><br><br>
   <%= submit_tag("Submit") %>
+<% end %>
+
+<h2>Rails form_for Form</h2>
+<%= form_for @user do |f| %>
+  <%= f.label :username, "Username:" %><br>
+  <%= f.text_field :username, placeholder: "Your new username"%><br><br>
+  <%= f.label :email, "Email address:" %><br>
+  <%= f.text_field :email, :value => "user@example.com" %><br><br>
+  <%= f.label :password, "Password:" %><br>
+  <%= f.password_field :password %><br><br>
+  <%= f.submit "Submit" %>
 <% end %>
