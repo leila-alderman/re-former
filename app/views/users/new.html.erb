@@ -1,7 +1,7 @@
 <h1>User signup</h1>
 
+<h2>HTML Form</h2>
 <form method="post" action="/users", accept-charset="UTF-8">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label for="username">Username:</label><br>
   <input type="text" name="user[username]"><br><br>
   <label for="email">Email address:</label><br>
@@ -10,3 +10,14 @@
   <input type="password" name="user[password]"><br><br>
   <input type="submit" value="Submit">
 </form>
+
+<h2>Rails form_tag form</h2>
+<%= form_tag("/users", method: "post") do %>
+  <%= label_tag(:username, "Username:") %><br>
+  <%= text_field_tag(:username) %><br><br>
+  <%= label_tag(:email, "Email address:") %><br>
+  <%= text_field_tag(:email) %><br><br>
+  <%= label_tag(:password, "Password:") %><br>
+  <%= password_field_tag(:password) %><br><br>
+  <%= submit_tag("Submit") %>
+<% end %>
